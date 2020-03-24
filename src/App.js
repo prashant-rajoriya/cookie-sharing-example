@@ -1,8 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
+  if (
+    document.cookie
+      .split(";")
+      .some((item) => item.trim().startsWith("paare_jwt="))
+  ) {
+    console.log(
+      'The cookie "reader" exists (ES6)',
+      document.cookie.replace(
+        /(?:(?:^|.*;\s*)paare_jwt\s*=\s*([^;]*).*$)|^.*$/,
+        "$1"
+      )
+    );
+  }
   return (
     <div className="App">
       <header className="App-header">
