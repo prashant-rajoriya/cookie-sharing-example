@@ -3,9 +3,19 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+import Cookies from "universal-cookie";
 
-document.cookie =
-  "paare_jwt=hereisthedance;domain=localhost;expires=2020-03-25T06:30:26Z;httpOnly=true";
+const cookies = new Cookies();
+
+cookies.set("paare_jwt", "Pacman", {
+  path: "/",
+  maxAge: 3600,
+  expires: new Date(),
+});
+console.log(cookies.get("paare_jwt")); // Pacman
+
+// document.cookie =
+//   "paare_jwt=hereisthedance;domain=localhost;expires=2020-03-25T06:30:26Z;httpOnly=true";
 // encodeURIComponent(
 //     `paare_jwt=${"hereisthedance"};domain=${"localhost:8000"};max-age=${60 *
 //       60 *
